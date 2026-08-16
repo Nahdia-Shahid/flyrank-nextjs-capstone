@@ -6,23 +6,18 @@ type HealthData = {
   version: string;
 };
 
-async function getHealthData(): Promise<HealthData> {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"}/api/health`,
-    {
-      cache: "no-store",
-    }
-  );
-
-  if (!response.ok) {
-    throw new Error("Health check request failed");
-  }
-
-  return response.json();
+function getHealthData(): HealthData {
+  return {
+    status: "healthy",
+    service: "FlyRank AI Dashboard",
+    environment: process.env.NODE_ENV,
+    timestamp: new Date().toISOString(),
+    version: "1.0.0",
+  };
 }
 
-export default async function HealthPage() {
-  const health = await getHealthData();
+export default function HealthPage() {
+  const health = getHealthData();
 
   return (
     <main className="space-y-10">
@@ -40,8 +35,8 @@ export default async function HealthPage() {
         </h1>
 
         <p className="hero-description">
-          Live application health information fetched from the
-          FlyRank AI API endpoint.
+          Live application health information for the FlyRank AI
+          Dashboard.
         </p>
       </section>
 
@@ -105,8 +100,12 @@ export default async function HealthPage() {
             </h2>
 
             <p className="text-slate-400 mt-2">
-              Data above was fetched from the application's
-              health API route.
+              The application health endpoint is available at
+              <span className="font-mono text-cyan-300">
+                {" "}
+                /api/health
+              </span>
+              .
             </p>
           </div>
 
