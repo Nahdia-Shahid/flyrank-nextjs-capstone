@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 FlyRank AI Dashboard
 
-## Getting Started
+A premium, responsive AI analytics dashboard built with **Next.js 16**, **React**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
 
-First, run the development server:
+This project was developed as part of the **FlyRank Front-end AI Engineering Internship** and demonstrates modern frontend engineering practices, App Router architecture, reusable components, responsive UI design, animation, accessibility considerations, and production-ready project structure.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🎨 Premium UI
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Modern dark-themed interface
+- Glassmorphism cards
+- Gradient backgrounds and typography
+- Responsive layouts
+- Smooth hover interactions
+- Premium visual hierarchy
+- Consistent spacing and component styling
 
-## Learn More
+### ⚡ Next.js App Router
 
-To learn more about Next.js, take a look at the following resources:
+The application uses the modern Next.js App Router architecture with:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Server Components by default
+- Client Components only where interactivity is required
+- File-system based routing
+- Shared application layout
+- Static and dynamic rendering support
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🎬 Animations
 
-## Deploy on Vercel
+The dashboard uses **Framer Motion** for interactive animations, including:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Page entrance animations
+- Staggered dashboard cards
+- Hover effects
+- Animated statistics counters
+- Animated progress bars
+- Scroll-triggered sections
+- Smooth UI transitions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 📊 AI Analytics Dashboard
+
+The dashboard displays:
+
+- Active Projects
+- AI Models
+- Team Members
+- Success Rate
+- Recent Activity
+- Project Status
+- Animated progress indicators
+
+Statistics animate from their initial state to their final values instead of appearing instantly.
+
+---
+
+## 🧭 Application Routes
+
+| Route | Description |
+|---|---|
+| `/` | Landing page |
+| `/about` | Project and application information |
+| `/dashboard` | AI analytics dashboard |
+| `/contact` | Contact page |
+| `/health` | Application health/status page |
+| `/api/health` | Health-check API endpoint |
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend
+
+- **Next.js 16**
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion**
+
+### Development
+
+- **Node.js**
+- **npm**
+- **Git**
+- **GitHub**
+- **Cursor**
+
+### Architecture
+
+- Next.js App Router
+- Reusable React components
+- Server Components by default
+- Client Components for interactive UI
+- Responsive-first design
+- Component-based styling
+
+---
+
+## 📁 Project Structure
+
+```text
+flyrank-nextjs-capstone/
+│
+├── public/
+│
+├── src/
+│   ├── app/
+│   │   ├── about/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── api/
+│   │   │   └── health/
+│   │   │       └── route.ts
+│   │   │
+│   │   ├── contact/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── dashboard/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── health/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   │
+│   └── components/
+│       └── AnimatedCounter.tsx
+│
+├── .gitignore
+├── AGENTS.md
+├── CLAUDE.md
+├── eslint.config.mjs
+├── LICENSE
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── README.md
+├── tsconfig.json
+└── package-lock.json
