@@ -141,3 +141,34 @@ flyrank-nextjs-capstone/
 ├── README.md
 ├── tsconfig.json
 └── package-lock.json
+
+## FE-05 Accessibility Playground
+
+This project includes an accessibility-focused component playground built with React, TypeScript, and Next.js.
+
+### Components
+
+- **Modal** — focus trapping, Escape-to-close, and focus restoration.
+- **Tabs** — ARIA tab semantics with Arrow Left/Right, Home, and End keyboard navigation.
+- **Disclosure** — semantic button interaction with `aria-expanded` and `aria-controls`.
+
+### Accessibility Testing
+
+All three components were manually tested using keyboard-only interaction.
+
+Verified behaviors include:
+
+- Tab navigation
+- Shift + Tab navigation
+- Enter
+- Space
+- Escape
+- Arrow Left / Arrow Right
+- Home / End
+- Modal focus trapping
+- Modal focus restoration
+- Visible focus states
+
+### Documentation
+
+See [`NOTES.md`](./NOTES.md) for the accessibility implementation notes and comparison with shadcn/ui components.
