@@ -1,6 +1,6 @@
-import { ollama } from "ollama-ai-provider-v2";
+import { google } from "@ai-sdk/google";
 
-export const chatModel = ollama("gemma3");
+export const chatModel = google("gemini-3.6-flash");
 
 export const systemPrompt = `
 You are the FlyRank AI assistant.
