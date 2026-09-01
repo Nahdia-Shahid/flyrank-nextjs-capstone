@@ -10,7 +10,14 @@ export default function Chat() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
-  const { messages, sendMessage, status, stop } = useChat();
+  const {
+    messages,
+    sendMessage,
+    status,
+    stop,
+    error,
+    regenerate,
+  } = useChat();
 
   const isStreaming = status === "streaming";
   const isSubmitted = status === "submitted";
@@ -85,7 +92,8 @@ export default function Chat() {
               </h2>
 
               <p className="mt-2 text-slate-400">
-                Ask FlyRank AI anything about the platform.
+                Start by asking about lead qualification, AI automation,
+                or the FlyRank platform.
               </p>
             </div>
           </div>
@@ -95,18 +103,16 @@ export default function Chat() {
           {messages.map((message) => (
             <div key={message.id}>
               <div
-                className={`flex ${
-                  message.role === "user"
+                className={`flex ${message.role === "user"
                     ? "justify-end"
                     : "justify-start"
-                }`}
+                  }`}
               >
                 <div
-                  className={`max-w-[85%] rounded-2xl px-4 py-3 ${
-                    message.role === "user"
+                  className={`max-w-[85%] rounded-2xl px-4 py-3 ${message.role === "user"
                       ? "bg-cyan-500 text-slate-950"
                       : "border border-white/10 bg-white/5 text-white"
-                  }`}
+                    }`}
                 >
                   <p className="mb-1 text-xs font-semibold uppercase tracking-wider opacity-60">
                     {message.role === "user"
@@ -268,6 +274,26 @@ export default function Chat() {
           </button>
         )}
       </div>
+
+      {error && (
+        <div className="mb-4 rounded-2xl border border-red-400/30 bg-red-400/10 p-4">
+          <p className="font-semibold text-red-300">
+            Something went wrong
+          </p>
+
+          <p className="mt-1 text-sm text-slate-400">
+            The AI response could not be completed.
+          </p>
+
+          <button
+            type="button"
+            onClick={() => regenerate()}
+            className="mt-3 rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white hover:bg-red-400"
+          >
+            Retry
+          </button>
+        </div>
+      )}
 
       <form
         onSubmit={handleSubmit}
