@@ -36,7 +36,9 @@ export default function Chat() {
     setIsAtBottom(distanceFromBottom < 80);
   }
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(
+    event: React.FormEvent<HTMLFormElement>
+  ) {
     event.preventDefault();
 
     const trimmedInput = input.trim();
@@ -91,37 +93,141 @@ export default function Chat() {
 
         <div className="space-y-5">
           {messages.map((message) => (
-            <div
-              key={message.id}
-              className={`flex ${
-                message.role === "user"
-                  ? "justify-end"
-                  : "justify-start"
-              }`}
-            >
+            <div key={message.id}>
               <div
-                className={`max-w-[85%] rounded-2xl px-4 py-3 ${
+                className={`flex ${
                   message.role === "user"
-                    ? "bg-cyan-500 text-slate-950"
-                    : "border border-white/10 bg-white/5 text-white"
+                    ? "justify-end"
+                    : "justify-start"
                 }`}
               >
-                <p className="mb-1 text-xs font-semibold uppercase tracking-wider opacity-60">
-                  {message.role === "user" ? "You" : "FlyRank AI"}
-                </p>
+                <div
+                  className={`max-w-[85%] rounded-2xl px-4 py-3 ${
+                    message.role === "user"
+                      ? "bg-cyan-500 text-slate-950"
+                      : "border border-white/10 bg-white/5 text-white"
+                  }`}
+                >
+                  <p className="mb-1 text-xs font-semibold uppercase tracking-wider opacity-60">
+                    {message.role === "user"
+                      ? "You"
+                      : "FlyRank AI"}
+                  </p>
 
-                <div className="whitespace-pre-wrap leading-7">
-                  {message.parts.map((part, index) => {
-                    if (part.type === "text") {
-                      return (
-                        <span key={index}>
-                          {part.text}
-                        </span>
-                      );
-                    }
+                  <div className="whitespace-pre-wrap leading-7">
+                    {message.parts.map((part, index) => {
+                      if (part.type === "text") {
+                        return (
+                          <span key={index}>
+                            {part.text}
+                          </span>
+                        );
+                      }
 
-                    return null;
-                  })}
+                      if (part.type === "tool-scoreLead") {
+                        if (part.state === "input-streaming") {
+                          return (
+                            <div
+                              key={index}
+                              className="mt-3 rounded-xl border border-cyan-400/30 bg-cyan-400/10 p-4"
+                            >
+                              <p className="font-semibold text-cyan-300">
+                                Preparing lead score...
+                              </p>
+                              <p className="mt-1 text-sm text-slate-400">
+                                Collecting qualification details.
+                              </p>
+                            </div>
+                          );
+                        }
+
+                        if (part.state === "input-available") {
+                          return (
+                            <div
+                              key={index}
+                              className="mt-3 rounded-xl border border-blue-400/30 bg-blue-400/10 p-4"
+                            >
+                              <p className="font-semibold text-blue-300">
+                                Scoring lead
+                              </p>
+                              <p className="mt-1 text-sm text-slate-400">
+                                Qualification data received. Running
+                                lead scoring...
+                              </p>
+                            </div>
+                          );
+                        }
+
+                        if (part.state === "output-available") {
+                          const result = part.output as {
+                            score: number;
+                            category: string;
+                            companySize: string;
+                            monthlyBudget: number;
+                            goal: string;
+                          };
+
+                          return (
+                            <div
+                              key={index}
+                              className="mt-3 rounded-xl border border-emerald-400/30 bg-emerald-400/10 p-4"
+                            >
+                              <p className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
+                                Lead Score
+                              </p>
+
+                              <div className="mt-2 flex items-end gap-3">
+                                <span className="text-4xl font-black text-emerald-400">
+                                  {result.score}
+                                </span>
+
+                                <span className="pb-1 text-sm text-slate-300">
+                                  / 100
+                                </span>
+                              </div>
+
+                              <p className="mt-2 font-semibold text-white">
+                                {result.category}
+                              </p>
+
+                              <div className="mt-3 space-y-1 text-sm text-slate-300">
+                                <p>
+                                  Company: {result.companySize}
+                                </p>
+                                <p>
+                                  Monthly budget: $
+                                  {result.monthlyBudget}
+                                </p>
+                                <p>
+                                  Goal: {result.goal}
+                                </p>
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        if (part.state === "output-error") {
+                          return (
+                            <div
+                              key={index}
+                              className="mt-3 rounded-xl border border-red-400/30 bg-red-400/10 p-4"
+                            >
+                              <p className="font-semibold text-red-300">
+                                Lead scoring failed
+                              </p>
+
+                              <p className="mt-1 text-sm text-slate-400">
+                                The tool could not complete the
+                                qualification check. Please try again.
+                              </p>
+                            </div>
+                          );
+                        }
+                      }
+
+                      return null;
+                    })}
+                  </div>
                 </div>
               </div>
             </div>

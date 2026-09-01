@@ -1,5 +1,7 @@
-import { streamText, convertToModelMessages } from "ai";
+import { convertToModelMessages, streamText } from "ai";
+
 import { chatModel, systemPrompt } from "@/lib/ai";
+import { scoreLead } from "@/lib/ai/tools";
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
@@ -8,6 +10,10 @@ export async function POST(req: Request) {
     model: chatModel,
     system: systemPrompt,
     messages: await convertToModelMessages(messages),
+
+    tools: {
+      scoreLead,
+    },
   });
 
   return result.toUIMessageStreamResponse();
