@@ -22,9 +22,9 @@ export default function LeadIntelligenceCanvas({ score }: Props) {
     ).matches;
 
     const lowPower =
-      navigator.hardwareConcurrency <= 4 ||
+      navigator.hardwareConcurrency <= 2 ||
       ("deviceMemory" in navigator &&
-        (navigator as Navigator & { deviceMemory?: number }).deviceMemory! <= 4);
+        (navigator as Navigator & { deviceMemory?: number }).deviceMemory! <= 2);
 
     setUseFallback(reducedMotion || lowPower);
   }, []);

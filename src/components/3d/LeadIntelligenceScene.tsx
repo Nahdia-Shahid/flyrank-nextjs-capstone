@@ -17,20 +17,20 @@ function Orb({ score }: Props) {
 
   useFrame((_, delta) => {
     if (mesh.current) {
-      mesh.current.rotation.y += delta * 0.35;
-      mesh.current.rotation.x += delta * 0.12;
+      mesh.current.rotation.y += delta * 1.2;
+      mesh.current.rotation.x += delta * 0.5;
     }
   });
 
   return (
-    <mesh ref={mesh} scale={1 + score / 500}>
-      <sphereGeometry args={[1.5, 32, 32]} />
+    <mesh ref={mesh} scale={1 + score / 300}>
+      <sphereGeometry args={[1.4, 32, 32]} />
       <meshStandardMaterial
         color={color}
-        metalness={0.35}
-        roughness={0.3}
         emissive={color}
-        emissiveIntensity={0.15}
+        emissiveIntensity={0.5}
+        metalness={0.5}
+        roughness={0.2}
       />
     </mesh>
   );
@@ -43,15 +43,15 @@ export default function LeadIntelligenceScene({ score }: Props) {
         dpr={[1, 1.5]}
         camera={{ position: [0, 0, 5], fov: 45 }}
       >
-        <ambientLight intensity={1.2} />
-        <directionalLight position={[3, 3, 4]} intensity={2} />
-        <pointLight position={[-3, -2, 2]} intensity={1} />
+        <ambientLight intensity={1} />
+        <directionalLight position={[4, 4, 5]} intensity={3} />
+        <pointLight position={[-4, -2, 3]} intensity={2} />
 
         <Orb score={score} />
 
         <OrbitControls
           enablePan={false}
-          enableZoom={false}
+          enableZoom={true}
           enableDamping
         />
       </Canvas>
