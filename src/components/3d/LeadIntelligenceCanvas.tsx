@@ -15,6 +15,7 @@ type Props = {
 
 export default function LeadIntelligenceCanvas({ score }: Props) {
   const [useFallback, setUseFallback] = useState<boolean | null>(null);
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
     const reducedMotion = window.matchMedia(
@@ -31,6 +32,19 @@ export default function LeadIntelligenceCanvas({ score }: Props) {
 
   if (useFallback === null || useFallback) {
     return <LeadIntelligenceFallback score={score} />;
+  }
+
+  if (!started) {
+    return (
+      <div className="flex h-[420px] w-full items-center justify-center rounded-3xl border border-white/10 bg-slate-950">
+        <button
+          onClick={() => setStarted(true)}
+          className="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-white transition hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-300"
+        >
+          Launch 3D Experience
+        </button>
+      </div>
+    );
   }
 
   return <LeadIntelligenceScene score={score} />;
