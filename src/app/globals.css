@@ -63,25 +63,8 @@ body{
   radial-gradient(circle at bottom right,#06b6d455,transparent 35%),
   linear-gradient(135deg,#050816,#0b1120,#111827);
 
-  background-size:300% 300%;
-  animation:gradientMove 14s ease infinite;
 }
 
-@keyframes gradientMove{
-
-0%{
-background-position:left top;
-}
-
-50%{
-background-position:right bottom;
-}
-
-100%{
-background-position:left top;
-}
-
-}
 
 .container{
 width:min(1200px,92%);
