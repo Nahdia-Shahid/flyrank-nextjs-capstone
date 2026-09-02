@@ -518,3 +518,21 @@ The capstone progressively demonstrates:
 -  Production deployment 
 -  AI-assisted development workflows
 
+## FE-AA1 — Motion & State Micro-interactions
+
+Added an accessible Send Message button demonstrating multiple UI states:
+
+- Idle
+- Hover/focus
+- Loading
+- Success
+- Error
+- Disabled
+
+### Motion decisions
+
+State transitions use a short 200ms `ease-out` transition for responsive feedback. Hover and tap interactions use compositor-friendly `transform` properties. The loading indicator uses an 800ms rotation loop, while the error state uses a short transform-based shake.
+
+The button is disabled during the simulated async operation to prevent broken or overlapping states. The demo provides explicit success and error triggers, plus a random mode with a 20% simulated failure rate.
+
+`prefers-reduced-motion` is respected: animations are removed or reduced while visual and textual state feedback remains available.
