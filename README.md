@@ -536,3 +536,23 @@ State transitions use a short 200ms `ease-out` transition for responsive feedbac
 The button is disabled during the simulated async operation to prevent broken or overlapping states. The demo provides explicit success and error triggers, plus a random mode with a 20% simulated failure rate.
 
 `prefers-reduced-motion` is respected: animations are removed or reduced while visual and textual state feedback remains available.
+
+## FE-AA2 — Interactive 3D Lead Intelligence
+
+Built an interactive 3D lead intelligence experience using React Three Fiber and Three.js.
+
+### What I built
+- Interactive 3D lead intelligence orb
+- Lead score controls (25, 50, 80)
+- Orb appearance and scale respond to the selected score
+- Touch/mouse orbit interaction
+- Responsive mobile-friendly canvas
+- Lazy-loaded 3D scene
+- Static fallback for reduced-motion and low-power devices
+
+### Performance note
+The experience uses a procedural sphere instead of a heavy external 3D model. The 3D canvas is dynamically loaded, device pixel ratio is capped at 1.5, and reduced-motion/low-power devices receive a lightweight static fallback.
+
+### With more time
+I would add a lightweight 3D lead visualization with additional data points and richer interactions.
+
