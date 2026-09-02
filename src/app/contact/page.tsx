@@ -1,3 +1,5 @@
+import ValidatedContactForm from "@/components/forms/ValidatedContactForm";
+
 export default function ContactPage() {
     return (
       <main className="space-y-10">
@@ -70,66 +72,7 @@ export default function ContactPage() {
             <h2 className="mb-6 text-2xl font-bold">
               Send a Message
             </h2>
-  
-            <form className="space-y-5">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="mb-2 block text-sm font-medium"
-                >
-                  Name
-                </label>
-  
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Your name"
-                  className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition placeholder:text-slate-500 focus:border-cyan-400/60 focus:bg-white/10"
-                />
-              </div>
-  
-              <div>
-                <label
-                  htmlFor="email"
-                  className="mb-2 block text-sm font-medium"
-                >
-                  Email
-                </label>
-  
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="you@example.com"
-                  className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition placeholder:text-slate-500 focus:border-cyan-400/60 focus:bg-white/10"
-                />
-              </div>
-  
-              <div>
-                <label
-                  htmlFor="message"
-                  className="mb-2 block text-sm font-medium"
-                >
-                  Message
-                </label>
-  
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  placeholder="Tell us how we can help..."
-                  className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition placeholder:text-slate-500 focus:border-cyan-400/60 focus:bg-white/10"
-                />
-              </div>
-  
-              <button
-                type="submit"
-                className="w-full rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 px-5 py-3 font-semibold transition hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20"
-              >
-                Send Message →
-              </button>
-            </form>
+            <ValidatedContactForm />
           </div>
         </section>
       </main>

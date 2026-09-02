@@ -2,6 +2,7 @@
 
 import { useChat } from "@ai-sdk/react";
 import { useEffect, useRef, useState } from "react";
+import LeadScoreResult from "./LeadScoreResult";
 
 export default function Chat() {
   const [input, setInput] = useState("");
@@ -173,43 +174,7 @@ export default function Chat() {
                             goal: string;
                           };
 
-                          return (
-                            <div
-                              key={index}
-                              className="mt-3 rounded-xl border border-emerald-400/30 bg-emerald-400/10 p-4"
-                            >
-                              <p className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
-                                Lead Score
-                              </p>
-
-                              <div className="mt-2 flex items-end gap-3">
-                                <span className="text-4xl font-black text-emerald-400">
-                                  {result.score}
-                                </span>
-
-                                <span className="pb-1 text-sm text-slate-300">
-                                  / 100
-                                </span>
-                              </div>
-
-                              <p className="mt-2 font-semibold text-white">
-                                {result.category}
-                              </p>
-
-                              <div className="mt-3 space-y-1 text-sm text-slate-300">
-                                <p>
-                                  Company: {result.companySize}
-                                </p>
-                                <p>
-                                  Monthly budget: $
-                                  {result.monthlyBudget}
-                                </p>
-                                <p>
-                                  Goal: {result.goal}
-                                </p>
-                              </div>
-                            </div>
-                          );
+                          return <LeadScoreResult key={index} {...result} />;
                         }
 
                         if (part.state === "output-error") {
