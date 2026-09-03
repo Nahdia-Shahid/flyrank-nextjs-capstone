@@ -556,3 +556,29 @@ The experience uses a procedural sphere instead of a heavy external 3D model. Th
 ### With more time
 I would add a lightweight 3D lead visualization with additional data points and richer interactions.
 
+## FE-AA3 — Signature Hero: Fullscreen Shader
+
+The home page includes a custom fullscreen GLSL fragment shader built with
+React Three Fiber and Three.js.
+
+### Shader Features
+
+- Custom vertex and fragment shaders written in GLSL.
+- Uses `u_time` for continuous animation.
+- Uses `u_resolution` for responsive screen-space rendering.
+- Uses `u_mouse` for interactive mouse-based glow.
+- Custom blue, cyan and violet FlyRank-inspired visual palette.
+- Hero content remains readable above the WebGL background.
+
+### Performance and Accessibility
+
+- Device pixel ratio is capped at `1.5` to reduce GPU workload.
+- WebGL animation pauses when the browser tab is hidden.
+- `prefers-reduced-motion` users receive a static gradient fallback.
+- Shader comments explain the purpose of each major GLSL section.
+
+### Live Experience
+
+The shader hero is deployed on the production home page:
+
+`https://YOUR-VERCEL-DOMAIN/`
