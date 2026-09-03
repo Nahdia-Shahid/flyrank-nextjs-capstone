@@ -1,52 +1,52 @@
 import Link from "next/link";
+import ShaderHero from "@/components/shader/ShaderHero";
 
 export default function Home() {
   return (
     <section className="space-y-10">
+      {/* Fullscreen custom GLSL shader hero */}
+      <ShaderHero />
 
+      {/* Existing project information */}
       <div className="glass-card">
+        <h2 className="text-2xl font-bold mb-4">
+          FlyRank AI Dashboard
+        </h2>
 
-        <h1 className="hero-title">
-          Build the Future with{" "}
-          <span className="gradient-text">
-            FlyRank AI Dashboard
-          </span>
-        </h1>
-
-        <p className="hero-description">
+        <p>
           A modern Next.js 16 dashboard built with App Router, Tailwind CSS,
-          glassmorphism UI, responsive layouts and production-ready architecture.
-          This project demonstrates professional frontend engineering practices
-          for the FlyRank AI Internship.
+          glassmorphism UI, responsive layouts and production-ready
+          architecture.
         </p>
 
-        <Link href="/dashboard" className="button">
-          Explore Dashboard →
-        </Link>
-
+        <div className="mt-6">
+          <Link href="/dashboard" className="button">
+            Explore Dashboard →
+          </Link>
+        </div>
       </div>
 
+      {/* Project highlights */}
       <div className="grid">
-
         <div className="glass-card">
           <h2 className="text-2xl font-bold mb-4">
             ⚡ Next.js 16
           </h2>
 
           <p>
-            Built using the latest App Router architecture with Server Components
-            by default.
+            Built using the latest App Router architecture with Server
+            Components by default.
           </p>
         </div>
 
         <div className="glass-card">
           <h2 className="text-2xl font-bold mb-4">
-            🎨 Modern UI
+            🎨 Interactive Shader
           </h2>
 
           <p>
-            Glassmorphism, gradients, smooth animations and responsive layouts
-            designed for a premium user experience.
+            A custom GLSL fullscreen hero using time, resolution and mouse
+            interaction for a personalized WebGL experience.
           </p>
         </div>
 
@@ -60,9 +60,7 @@ export default function Home() {
             project architecture.
           </p>
         </div>
-
       </div>
-
     </section>
   );
 }
