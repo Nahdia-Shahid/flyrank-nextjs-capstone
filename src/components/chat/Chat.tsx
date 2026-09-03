@@ -268,8 +268,11 @@ export default function Chat() {
           value={input}
           onChange={(event) => setInput(event.target.value)}
           disabled={isStreaming || isSubmitted}
+          aria-label="Ask FlyRank AI"
           placeholder="Ask FlyRank AI..."
-          className="min-w-0 flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 disabled:cursor-not-allowed disabled:opacity-50"
+          className="min-w-0 flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 
+          text-white outline-none placeholder:text-slate-500 focus:border-cyan-400 focus:ring-2 
+          focus:ring-cyan-400/20 disabled:cursor-not-allowed disabled:opacity-50"
         />
 
         {isStreaming ? (
