@@ -1,11 +1,11 @@
 import Link from "next/link";
-import ShaderHero from "@/components/shader/ShaderHero";
+import ShaderHeroLoader from "@/components/shader/ShaderHeroLoader";
 
 export default function Home() {
   return (
     <section className="space-y-10">
       {/* Fullscreen custom GLSL shader hero */}
-      <ShaderHero />
+      <ShaderHeroLoader />
 
       {/* Existing project information */}
       <div className="glass-card">
