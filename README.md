@@ -217,6 +217,8 @@ flyrank-nextjs-capstone/
 └── package-lock.json
 ```
 
+
+
 # ♿ FE-05 Accessibility Playground
 
 This project includes an accessibility-focused component playground built with **React, TypeScript, and Next.js**.
@@ -226,6 +228,8 @@ This project includes an accessibility-focused component playground built with *
 - **Modal** — focus trapping, Escape-to-close, and focus restoration.
 - **Tabs** — ARIA tab semantics with Arrow Left/Right, Home, and End keyboard navigation.
 - **Disclosure** — semantic button interaction with `aria-expanded` and `aria-controls`.
+
+
 
 ## Accessibility Testing
 
@@ -244,11 +248,15 @@ Verified behaviors include:
 - Modal focus restoration
 - Visible focus states
 
+
+
 ## Documentation
 
 See `NOTES.md` for the accessibility implementation notes and comparison with shadcn/ui components.
 
 ---
+
+
 
 # 🤖 FE-06 Streaming AI Chat
 
@@ -266,6 +274,8 @@ The application includes a streaming AI qualification chat built using the AI SD
 - Responsive mobile-friendly input
 - Server-side API key handling
 
+
+
 ## Chat Route
 
 The streaming API route is:
@@ -274,6 +284,8 @@ The streaming API route is:
 src/app/api/chat/route.ts
 ```
 
+
+
 ## Chat Component
 
 The main chat component is:
@@ -281,6 +293,8 @@ The main chat component is:
 ```
 src/components/chat/Chat.tsx
 ```
+
+
 
 ## AI Configuration
 
@@ -291,6 +305,8 @@ src/lib/ai/index.ts
 ```
 
 ---
+
+
 
 # 🧰 FE-07 AI Tool Contract
 
@@ -318,6 +334,8 @@ It is connected to the streaming chat API through:
 src/app/api/chat/route.ts
 ```
 
+
+
 ## Input Schema
 
 ```
@@ -327,6 +345,8 @@ src/app/api/chat/route.ts
   goal: string;
 }
 ```
+
+
 
 ## Return Shape
 
@@ -339,6 +359,8 @@ src/app/api/chat/route.ts
   goal: string;
 }
 ```
+
+
 
 ## Tool Lifecycle States
 
@@ -364,11 +386,11 @@ Displays a designed error state when the tool execution fails instead of exposin
 
 Successful tool results are rendered as a structured **Lead Score card** showing:
 
--  Lead score out of 100 
--  Priority category 
--  Company size 
--  Monthly budget 
--  Business goal 
+- Lead score out of 100 
+- Priority category 
+- Company size 
+- Monthly budget 
+- Business goal
 
 The result is displayed as a real UI component rather than raw JSON.
 
@@ -391,6 +413,8 @@ Goal: automate customer support and improve lead qualification
 ```
 
 ---
+
+
 
 # 🔐 Environment Variables
 
@@ -422,6 +446,8 @@ For production deployment, the environment variable is configured in the deploym
 
 ---
 
+
+
 # 🚀 Running the Project Locally
 
 Install dependencies:
@@ -450,6 +476,8 @@ http://localhost:3000/chat
 
 ---
 
+
+
 # 🏗️ Production Build
 
 To verify the project before deployment:
@@ -466,42 +494,48 @@ The production build completes successfully with the current implementation.
 
 ---
 
+
+
 # 🌐 Deployment
 
 The application is deployed using **Vercel**.
 
 The deployed application includes:
 
--  Responsive dashboard 
--  Health check page 
--  Streaming AI chat 
--  Server-side AI API route 
--  Lead scoring tool 
--  Structured tool result UI 
+- Responsive dashboard 
+- Health check page 
+- Streaming AI chat 
+- Server-side AI API route 
+- Lead scoring tool 
+- Structured tool result UI
 
 Environment variables required by the AI integration are configured on the deployment platform and are not committed to the repository.
 
 ---
 
+
+
 # 🧪 Verification
 
 The following functionality has been tested:
 
--  Application routes load correctly 
--  Health API responds successfully 
--  AI chat sends and receives messages 
--  AI responses stream progressively 
--  Stop button interrupts generation 
--  Conversation continues across multiple turns 
--  Auto-scroll works during streaming 
--  Jump-to-latest control works 
--  Chat works at mobile width 
+- Application routes load correctly 
+- Health API responds successfully 
+- AI chat sends and receives messages 
+- AI responses stream progressively 
+- Stop button interrupts generation 
+- Conversation continues across multiple turns 
+- Auto-scroll works during streaming 
+- Jump-to-latest control works 
+- Chat works at mobile width 
 - `scoreLead` tool executes successfully 
--  Lead Score result renders as a UI component 
--  Tool lifecycle states are handled 
--  Production build passes successfully 
+- Lead Score result renders as a UI component 
+- Tool lifecycle states are handled 
+- Production build passes successfully
 
 ---
+
+
 
 # 📚 Internship Context
 
@@ -509,14 +543,16 @@ This project is part of the **FlyRank Front-end AI Engineering Internship**.
 
 The capstone progressively demonstrates:
 
--  Modern frontend architecture 
--  Accessibility 
--  AI streaming interfaces 
--  Structured AI tool interactions 
--  Responsive UI engineering 
--  Server/client separation 
--  Production deployment 
--  AI-assisted development workflows
+- Modern frontend architecture 
+- Accessibility 
+- AI streaming interfaces 
+- Structured AI tool interactions 
+- Responsive UI engineering 
+- Server/client separation 
+- Production deployment 
+- AI-assisted development workflows
+
+
 
 ## FE-AA1 — Motion & State Micro-interactions
 
@@ -528,6 +564,8 @@ Added an accessible Send Message button demonstrating multiple UI states:
 - Success
 - Error
 - Disabled
+
+
 
 ### Motion decisions
 
@@ -542,6 +580,7 @@ The button is disabled during the simulated async operation to prevent broken or
 Built an interactive 3D lead intelligence experience using React Three Fiber and Three.js.
 
 ### What I built
+
 - Interactive 3D lead intelligence orb
 - Lead score controls (25, 50, 80)
 - Orb appearance and scale respond to the selected score
@@ -550,10 +589,14 @@ Built an interactive 3D lead intelligence experience using React Three Fiber and
 - Lazy-loaded 3D scene
 - Static fallback for reduced-motion and low-power devices
 
+
+
 ### Performance note
+
 The experience uses a procedural sphere instead of a heavy external 3D model. The 3D canvas is dynamically loaded, device pixel ratio is capped at 1.5, and reduced-motion/low-power devices receive a lightweight static fallback.
 
 ### With more time
+
 I would add a lightweight 3D lead visualization with additional data points and richer interactions.
 
 ## FE-AA3 — Signature Hero: Fullscreen Shader
@@ -570,6 +613,8 @@ React Three Fiber and Three.js.
 - Custom blue, cyan and violet FlyRank-inspired visual palette.
 - Hero content remains readable above the WebGL background.
 
+
+
 ### Performance and Accessibility
 
 - Device pixel ratio is capped at `1.5` to reduce GPU workload.
@@ -577,8 +622,242 @@ React Three Fiber and Three.js.
 - `prefers-reduced-motion` users receive a static gradient fallback.
 - Shader comments explain the purpose of each major GLSL section.
 
+
+
 ### Live Experience
 
 The shader hero is deployed on the production home page:
 
-`https://YOUR-VERCEL-DOMAIN/`
+`https://flyrank-nextjs-capstone.vercel.app/`
+
+---
+
+
+
+# 🚀 FE-11 Production Deployment
+
+This project is deployed as a production Next.js application.
+
+## Production Features
+
+- Public production deployment
+- Server-side AI API integration
+- Google Gemini streaming responses
+- Server-side `scoreLead` tool execution
+- Protected API credentials through environment variables
+- Input limits on the AI route
+- Maximum streaming duration of 30 seconds
+- Responsive desktop and mobile UI
+- Accessibility-focused interaction patterns
+- Production build verification
+
+
+
+## AI API Protection
+
+The `/api/chat` route includes request-size protections to reduce trivial API abuse.
+
+The route enforces:
+
+
+| Protection                            | Limit      |
+| ------------------------------------- | ---------- |
+| Maximum messages                      | 20         |
+| Maximum characters per message        | 4,000      |
+| Maximum total conversation characters | 12,000     |
+| Maximum streaming duration            | 30 seconds |
+
+
+Oversized or malformed requests are rejected before being sent to the AI model.
+
+The API key remains server-side and is never exposed to client-side JavaScript.
+
+## Environment Variables
+
+Create a `.env.local` file for local development:
+
+
+| Variable                       | Required | Description           |
+| ------------------------------ | -------- | --------------------- |
+| `GOOGLE_GENERATIVE_AI_API_KEY` | Yes      | Google Gemini API key |
+
+
+Example:
+
+```env
+GOOGLE_GENERATIVE_AI_API_KEY=your_api_key_here
+
+
+```
+
+Never commit `.env.local` or real API keys to Git.
+
+For production, the same environment variable is configured through the deployment platform.
+
+## Architecture Overview
+
+```
+Browser
+   |
+   v
+Next.js App Router
+   |
+   +---- UI Pages
+   |
+   +---- Client Components
+   |
+   v
+/api/chat
+   |
+   +---- Input validation / size limits
+   |
+   +---- AI SDK streaming
+   |
+   +---- scoreLead tool
+   |
+   v
+Google Gemini
+```
+
+The application follows a server/client separation:
+
+- Server Components are used by default. 
+- Client Components are used for interactive UI. 
+- AI credentials remain server-side. 
+- AI requests pass through the Next.js API route. 
+- Tool execution happens on the server. 
+- Structured tool results are rendered by the client UI.
+
+
+
+## Key Engineering Decisions
+
+
+
+### Next.js App Router
+
+Next.js App Router was selected to provide a clear server/client boundary and modern routing architecture.
+
+### Streaming AI
+
+AI responses are streamed progressively so users receive feedback without waiting for the complete response.
+
+### Server-side AI Tools
+
+The `scoreLead` tool runs on the server so qualification logic and AI configuration are not exposed directly to the browser.
+
+### Input Caps
+
+The chat endpoint limits message count and request size to reduce trivial abuse and unnecessary model usage.
+
+### Performance
+
+The 3D and shader experiences use capped device pixel ratio, visibility-aware rendering, and reduced-motion fallbacks to reduce unnecessary browser workload.
+
+### Accessibility
+
+The project includes semantic controls, keyboard navigation, visible focus states, accessible labels, modal focus management, and polite announcements for streamed AI output.
+
+## Screenshots
+
+
+
+### Home / Signature Shader Hero
+
+Added a screenshot of the deployed home page here.
+
+```
+![FlyRank AI Signature Shader Hero](docs/screenshots/home.png)
+```
+
+
+
+### AI Chat
+
+Added a screenshot showing the streaming AI chat and Lead Score result here.
+
+```
+![FlyRank AI Chat](docs/screenshots/chat.png)
+```
+
+
+
+### Production Verification
+
+The production deployment was manually verified for:
+
+- Home page 
+- Dashboard 
+- Contact form 
+- AI chat 
+- Streaming responses 
+- Lead scoring tool 
+- Error and retry states 
+- Responsive layout 
+- Keyboard navigation 
+- Shader hero 
+- 3D experience
+
+
+
+## Cross-Browser Verification
+
+The primary user flow was checked across supported browser environments.
+
+Verified areas:
+
+- Page rendering 
+- Navigation 
+- Responsive layout 
+- Chat input 
+- Streaming AI response 
+- Buttons and interactive controls 
+- Shader/WebGL experience
+
+Target environments:
+
+- Chrome 
+- Firefox 
+- Safari 
+- Mobile Safari
+
+
+
+## How AI Tools Built This Project
+
+AI coding assistants were used as development tools throughout the project, but generated code was reviewed, tested, and adapted before being committed.
+
+AI assistance was used for:
+
+- Initial component scaffolding 
+- React and Next.js implementation ideas 
+- Accessibility improvements 
+- AI SDK integration 
+- Streaming chat implementation 
+- Tool-calling integration 
+- Test generation 
+- Error-state implementation 
+- Shader experimentation 
+- Performance optimization 
+- README documentation
+
+The development process was iterative:
+
+1. Define the requirement.
+2. Ask the AI assistant for an implementation approach.
+3. Review the generated code.
+4. Run TypeScript/build/tests.
+5. Fix errors.
+6. Manually verify the browser behavior.
+7. Commit the verified implementation.
+
+AI was therefore used as an engineering assistant rather than as an unchecked code generator.
+
+## Production URL
+
+**Live application:**
+
+`https://flyrank-nextjs-capstone.vercel.app/`
+
+---
+
