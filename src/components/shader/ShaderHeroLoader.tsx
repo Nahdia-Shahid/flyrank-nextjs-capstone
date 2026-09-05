@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from "react";
 
-function StaticHero() {
+function StaticHero({ onLoadShader }: { onLoadShader: () => void }) {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-violet-950">
+    <section
+      className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-violet-950"
+      onPointerMove={onLoadShader}
+    >
       <div className="flex min-h-screen items-center px-6 py-20">
         <div className="mx-auto w-full max-w-6xl">
           <div className="max-w-3xl">
@@ -42,30 +45,12 @@ function StaticHero() {
 export default function ShaderHeroLoader() {
   const [loadShader, setLoadShader] = useState(false);
 
-  useEffect(() => {
-    const load = () => {
-      setLoadShader(true);
-    };
-
-    if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(load, {
-        timeout: 3000,
-      });
-
-      return () => {
-        window.cancelIdleCallback(idleId);
-      };
-    }
-
-    const timeoutId = setTimeout(load, 1500);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, []);
+  const handleLoadShader = () => {
+    setLoadShader(true);
+  };
 
   if (!loadShader) {
-    return <StaticHero />;
+    return <StaticHero onLoadShader={handleLoadShader} />;
   }
 
   return <DeferredShaderHero />;
@@ -83,7 +68,7 @@ function DeferredShaderHero() {
   }, []);
 
   if (!ShaderHero) {
-    return <StaticHero />;
+    return <StaticHero onLoadShader={() => undefined} />;
   }
 
   return <ShaderHero />;
