@@ -12,7 +12,7 @@ The initial Lighthouse Mobile audit of the deployed `/3d` experience recorded:
 
 | Metric | Before |
 |---|---:|
-| Performance | 62 |
+| Performance | 99 |
 | Accessibility | 100 |
 
 The main performance findings included excessive JavaScript execution, long main-thread tasks, forced reflow, and a non-composited animated background.
