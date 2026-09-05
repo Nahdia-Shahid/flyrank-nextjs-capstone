@@ -89,7 +89,8 @@ function ShaderPlane() {
   useFrame((state) => {
     if (!material.current) return;
 
-    uniforms.u_time.value = state.clock.getElapsedTime();
+    material.current.uniforms.u_time.value =
+      state.clock.getElapsedTime();
   });
 
   return (

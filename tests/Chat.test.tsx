@@ -5,7 +5,28 @@ import Chat from "@/components/chat/Chat";
 const sendMessage = vi.fn();
 const stop = vi.fn();
 const regenerate = vi.fn();
-let chatState: any;
+type MockChatState = {
+  messages: Array<{
+    id: string;
+    role: string;
+    parts: Array<{
+      type: string;
+      text?: string;
+      state?: string;
+      output?: {
+        score: number;
+        category: string;
+        companySize: string;
+        monthlyBudget: number;
+        goal: string;
+      };
+    }>;
+  }>;
+  status: string;
+  error?: Error;
+};
+
+let chatState: MockChatState;
 
 vi.mock("@ai-sdk/react", () => ({ useChat: () => ({ ...chatState, sendMessage, stop, regenerate }) }));
 

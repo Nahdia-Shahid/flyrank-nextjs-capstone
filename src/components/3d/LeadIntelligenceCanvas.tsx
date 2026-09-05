@@ -16,6 +16,7 @@ export default function LeadIntelligenceCanvas({ score }: Props) {
   const [started, setStarted] = useState(false);
   const [Scene, setScene] = useState<ComponentType<SceneProps> | null>(null);
 
+  // Browser capability detection intentionally updates state after mount.
   useEffect(() => {
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -26,14 +27,15 @@ export default function LeadIntelligenceCanvas({ score }: Props) {
       ("deviceMemory" in navigator &&
         (navigator as Navigator & { deviceMemory?: number }).deviceMemory! <= 2);
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setUseFallback(reducedMotion || lowPower);
   }, []);
 
   const launch3D = async () => {
     setStarted(true);
 
-    const module = await import("./LeadIntelligenceScene");
-    setScene(() => module.default);
+    const sceneModule = await import("./LeadIntelligenceScene");
+    setScene(() => sceneModule.default);
   };
 
   if (useFallback === null || useFallback) {
@@ -44,6 +46,7 @@ export default function LeadIntelligenceCanvas({ score }: Props) {
     return (
       <div className="flex h-[420px] w-full items-center justify-center rounded-3xl border border-white/10 bg-slate-950">
         <button
+          type="button"
           onClick={launch3D}
           className="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-white transition hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-300"
         >

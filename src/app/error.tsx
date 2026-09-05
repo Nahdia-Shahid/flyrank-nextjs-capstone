@@ -16,7 +16,7 @@ export default function Error({
         </h1>
 
         <p className="mt-3 text-slate-400">
-          We couldn't load this page. Please try again.
+        We couldn&apos;t load this page. Please try again.
         </p>
 
         <button

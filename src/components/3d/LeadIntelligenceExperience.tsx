@@ -22,12 +22,13 @@ export default function LeadIntelligenceExperience() {
       ("deviceMemory" in navigator &&
         (navigator as Navigator & { deviceMemory?: number }).deviceMemory! <= 2);
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setFallback(reducedMotion || lowPower);
   }, []);
 
   async function launch3D() {
-    const module = await import("./LeadIntelligenceScene");
-    setScene(() => module.default);
+    const sceneModule = await import("./LeadIntelligenceScene");
+    setScene(() => sceneModule.default);
   }
 
   if (fallback === null || fallback) {
