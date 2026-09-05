@@ -1,11 +1,10 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 
-const ShaderHero = dynamic(() => import("./ShaderHero"), {
-  ssr: false,
-  loading: () => (
-    <section className="relative min-h-screen overflow-hidden bg-slate-950">
+function StaticHero() {
+  return (
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-violet-950">
       <div className="flex min-h-screen items-center px-6 py-20">
         <div className="mx-auto w-full max-w-6xl">
           <div className="max-w-3xl">
@@ -24,13 +23,68 @@ const ShaderHero = dynamic(() => import("./ShaderHero"), {
               Intelligent lead qualification and automation powered by a
               personalized WebGL experience.
             </p>
+
+            <div className="mt-8">
+              <a
+                href="/dashboard"
+                className="inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-300"
+              >
+                Explore Dashboard
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  ),
-});
+  );
+}
 
 export default function ShaderHeroLoader() {
+  const [loadShader, setLoadShader] = useState(false);
+
+  useEffect(() => {
+    const load = () => {
+      setLoadShader(true);
+    };
+
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(load, {
+        timeout: 3000,
+      });
+
+      return () => {
+        window.cancelIdleCallback(idleId);
+      };
+    }
+
+    const timeoutId = setTimeout(load, 1500);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
+  if (!loadShader) {
+    return <StaticHero />;
+  }
+
+  return <DeferredShaderHero />;
+}
+
+function DeferredShaderHero() {
+  const [ShaderHero, setShaderHero] = useState<
+    typeof import("./ShaderHero").default | null
+  >(null);
+
+  useEffect(() => {
+    import("./ShaderHero").then((module) => {
+      setShaderHero(() => module.default);
+    });
+  }, []);
+
+  if (!ShaderHero) {
+    return <StaticHero />;
+  }
+
   return <ShaderHero />;
 }
