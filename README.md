@@ -18,8 +18,6 @@ This project was developed as part of the **FlyRank Front-end AI Engineering Int
 - Premium visual hierarchy
 - Consistent spacing and component styling
 
-
-
 ### ⚡ Next.js App Router
 
 The application uses the modern Next.js App Router architecture with:
@@ -29,8 +27,6 @@ The application uses the modern Next.js App Router architecture with:
 - File-system based routing
 - Shared application layout
 - Static and dynamic rendering support
-
-
 
 ### 🎬 Animations
 
@@ -43,8 +39,6 @@ The dashboard uses **Framer Motion** for interactive animations, including:
 - Animated progress bars
 - Scroll-triggered sections
 - Smooth UI transitions
-
-
 
 ### 📊 AI Analytics Dashboard
 
@@ -74,8 +68,6 @@ The application includes a streaming AI qualification chat with:
 - Responsive mobile input
 - Server-side API key protection
 
-
-
 ### 🧰 AI Tool Integration
 
 The AI chat includes a server-side `scoreLead` tool that:
@@ -88,8 +80,6 @@ The AI chat includes a server-side `scoreLead` tool that:
 - Provides a designed error state
 
 ---
-
-
 
 ## 🧭 Application Routes
 
@@ -108,11 +98,7 @@ The AI chat includes a server-side `scoreLead` tool that:
 
 ---
 
-
-
 ## 🛠️ Technology Stack
-
-
 
 ### Frontend
 
@@ -122,8 +108,6 @@ The AI chat includes a server-side `scoreLead` tool that:
 - **Tailwind CSS**
 - **Framer Motion**
 
-
-
 ### AI
 
 - **AI SDK**
@@ -132,8 +116,6 @@ The AI chat includes a server-side `scoreLead` tool that:
 - Streaming AI responses
 - Server-side AI tool execution
 
-
-
 ### Development
 
 - **Node.js**
@@ -141,8 +123,6 @@ The AI chat includes a server-side `scoreLead` tool that:
 - **Git**
 - **GitHub**
 - **Cursor**
-
-
 
 ### Architecture
 
@@ -155,8 +135,6 @@ The AI chat includes a server-side `scoreLead` tool that:
 - Server-side AI API integration
 
 ---
-
-
 
 ## 📁 Project Structure
 
@@ -217,8 +195,6 @@ flyrank-nextjs-capstone/
 └── package-lock.json
 ```
 
-
-
 # ♿ FE-05 Accessibility Playground
 
 This project includes an accessibility-focused component playground built with **React, TypeScript, and Next.js**.
@@ -228,8 +204,6 @@ This project includes an accessibility-focused component playground built with *
 - **Modal** — focus trapping, Escape-to-close, and focus restoration.
 - **Tabs** — ARIA tab semantics with Arrow Left/Right, Home, and End keyboard navigation.
 - **Disclosure** — semantic button interaction with `aria-expanded` and `aria-controls`.
-
-
 
 ## Accessibility Testing
 
@@ -248,15 +222,11 @@ Verified behaviors include:
 - Modal focus restoration
 - Visible focus states
 
-
-
 ## Documentation
 
 See `NOTES.md` for the accessibility implementation notes and comparison with shadcn/ui components.
 
 ---
-
-
 
 # 🤖 FE-06 Streaming AI Chat
 
@@ -274,8 +244,6 @@ The application includes a streaming AI qualification chat built using the AI SD
 - Responsive mobile-friendly input
 - Server-side API key handling
 
-
-
 ## Chat Route
 
 The streaming API route is:
@@ -284,8 +252,6 @@ The streaming API route is:
 src/app/api/chat/route.ts
 ```
 
-
-
 ## Chat Component
 
 The main chat component is:
@@ -293,8 +259,6 @@ The main chat component is:
 ```
 src/components/chat/Chat.tsx
 ```
-
-
 
 ## AI Configuration
 
@@ -305,8 +269,6 @@ src/lib/ai/index.ts
 ```
 
 ---
-
-
 
 # 🧰 FE-07 AI Tool Contract
 
@@ -334,8 +296,6 @@ It is connected to the streaming chat API through:
 src/app/api/chat/route.ts
 ```
 
-
-
 ## Input Schema
 
 ```
@@ -345,8 +305,6 @@ src/app/api/chat/route.ts
   goal: string;
 }
 ```
-
-
 
 ## Return Shape
 
@@ -359,8 +317,6 @@ src/app/api/chat/route.ts
   goal: string;
 }
 ```
-
-
 
 ## Tool Lifecycle States
 
@@ -414,8 +370,6 @@ Goal: automate customer support and improve lead qualification
 
 ---
 
-
-
 # 🔐 Environment Variables
 
 AI API credentials are stored in environment variables and are never exposed directly in client-side code.
@@ -446,8 +400,6 @@ For production deployment, the environment variable is configured in the deploym
 
 ---
 
-
-
 # 🚀 Running the Project Locally
 
 Install dependencies:
@@ -476,8 +428,6 @@ http://localhost:3000/chat
 
 ---
 
-
-
 # 🏗️ Production Build
 
 To verify the project before deployment:
@@ -493,8 +443,6 @@ npm run build
 The production build completes successfully with the current implementation.
 
 ---
-
-
 
 # 🌐 Deployment
 
@@ -512,8 +460,6 @@ The deployed application includes:
 Environment variables required by the AI integration are configured on the deployment platform and are not committed to the repository.
 
 ---
-
-
 
 # 🧪 Verification
 
@@ -535,8 +481,6 @@ The following functionality has been tested:
 
 ---
 
-
-
 # 📚 Internship Context
 
 This project is part of the **FlyRank Front-end AI Engineering Internship**.
@@ -552,8 +496,6 @@ The capstone progressively demonstrates:
 - Production deployment 
 - AI-assisted development workflows
 
-
-
 ## FE-AA1 — Motion & State Micro-interactions
 
 Added an accessible Send Message button demonstrating multiple UI states:
@@ -564,8 +506,6 @@ Added an accessible Send Message button demonstrating multiple UI states:
 - Success
 - Error
 - Disabled
-
-
 
 ### Motion decisions
 
@@ -589,8 +529,6 @@ Built an interactive 3D lead intelligence experience using React Three Fiber and
 - Lazy-loaded 3D scene
 - Static fallback for reduced-motion and low-power devices
 
-
-
 ### Performance note
 
 The experience uses a procedural sphere instead of a heavy external 3D model. The 3D canvas is dynamically loaded, device pixel ratio is capped at 1.5, and reduced-motion/low-power devices receive a lightweight static fallback.
@@ -613,16 +551,12 @@ React Three Fiber and Three.js.
 - Custom blue, cyan and violet FlyRank-inspired visual palette.
 - Hero content remains readable above the WebGL background.
 
-
-
 ### Performance and Accessibility
 
 - Device pixel ratio is capped at `1.5` to reduce GPU workload.
 - WebGL animation pauses when the browser tab is hidden.
 - `prefers-reduced-motion` users receive a static gradient fallback.
 - Shader comments explain the purpose of each major GLSL section.
-
-
 
 ### Live Experience
 
@@ -631,8 +565,6 @@ The shader hero is deployed on the production home page:
 `https://flyrank-nextjs-capstone.vercel.app/`
 
 ---
-
-
 
 # 🚀 FE-11 Production Deployment
 
@@ -650,8 +582,6 @@ This project is deployed as a production Next.js application.
 - Responsive desktop and mobile UI
 - Accessibility-focused interaction patterns
 - Production build verification
-
-
 
 ## AI API Protection
 
@@ -728,11 +658,7 @@ The application follows a server/client separation:
 - Tool execution happens on the server. 
 - Structured tool results are rendered by the client UI.
 
-
-
 ## Key Engineering Decisions
-
-
 
 ### Next.js App Router
 
@@ -760,8 +686,6 @@ The project includes semantic controls, keyboard navigation, visible focus state
 
 ## Screenshots
 
-
-
 ### Home / Signature Shader Hero
 
 Added a screenshot of the deployed home page here.
@@ -770,17 +694,13 @@ Added a screenshot of the deployed home page here.
 ![FlyRank AI Signature Shader Hero](docs/screenshots/home.png)
 ```
 
-
-
 ### AI Chat
 
 Added a screenshot showing the streaming AI chat and Lead Score result here.
 
 ```
-![FlyRank AI Chat](docs/screenshots/chat.png)
+![FlyRank AI Chat](docs/screenshots/Chat.png)
 ```
-
-
 
 ### Production Verification
 
@@ -798,7 +718,55 @@ The production deployment was manually verified for:
 - Shader hero 
 - 3D experience
 
+## Production Deployment Checklist
 
+- Production deployment is live and publicly accessible
+- Production build completed successfully
+- Required production environment variables configured
+- AI API integration verified
+- Streaming AI responses verified
+- `scoreLead` tool execution verified
+- Error and retry states verified
+- Responsive desktop and mobile layouts verified
+- Keyboard navigation verified
+- Accessibility audit completed
+- Lighthouse audit completed
+- Cross-browser verification completed
+- `/api/health` health endpoint available
+- API input limits and streaming timeout verified
+- API credentials confirmed to remain server-side
+- Repository changes committed and pushed
+- Rollback procedure documented
+
+**Deployment status:** ✅ READY / SIGNED OFF
+
+## Rollback & Monitoring
+
+### Rollback Plan
+
+Production deployments are managed through Vercel from the `main` branch.
+
+If a production deployment introduces a regression:
+
+1. Identify the problematic commit or deployment.
+2. Revert the problematic change in Git.
+3. Push the revert to `main`.
+4. Verify the resulting production deployment.
+5. If necessary, redeploy the last known-good Vercel deployment.
+
+### Operational Checks
+
+The following checks can be used to confirm production health:
+
+- Production homepage loads successfully.
+- `/api/health` responds successfully.
+- AI chat accepts valid requests.
+- Streaming responses complete normally.
+- Invalid or oversized requests are rejected safely.
+- API credentials are not exposed to client-side code.
+- Error and retry states remain functional.
+
+The deployment can be rolled back by reverting the relevant Git commit and redeploying from `main`, or by using the last known-good deployment available in Vercel.
 
 ## Cross-Browser Verification
 
@@ -820,8 +788,6 @@ Target environments:
 - Firefox 
 - Safari 
 - Mobile Safari
-
-
 
 ## How AI Tools Built This Project
 
@@ -852,6 +818,53 @@ The development process was iterative:
 7. Commit the verified implementation.
 
 AI was therefore used as an engineering assistant rather than as an unchecked code generator.
+
+## Rollback & Monitoring
+
+### Rollback Plan
+
+Production deployments are managed through Vercel from the `main` branch.
+
+If a production deployment introduces a regression:
+
+1. Identify the problematic commit or deployment.
+2. Revert the problematic change in Git.
+3. Push the revert to `main`.
+4. Verify the new production deployment.
+5. If necessary, redeploy the last known-good Vercel deployment.
+
+The `/api/health` endpoint provides a basic production health check for confirming API availability.
+
+### Operational Checks
+
+Before considering a deployment successful, verify:
+
+- Production homepage loads.
+- `/api/health` responds successfully.
+- AI chat accepts valid requests.
+- Streaming responses complete normally.
+- Invalid/oversized requests are rejected safely.
+- No API credentials are exposed to the client.
+
+## Production Deployment Checklist
+
+- [x] Production deployment is live
+- [x] Production build succeeds
+- [x] Environment variables configured
+- [x] AI API integration verified
+- [x] Streaming responses verified
+- [x] Lead scoring tool verified
+- [x] Error and retry states verified
+- [x] Responsive layout verified
+- [x] Keyboard navigation verified
+- [x] Accessibility audit completed
+- [x] Lighthouse audit completed
+- [x] Cross-browser verification completed
+- [x] Production health endpoint verified
+- [x] Repository changes committed and pushed
+- [x] Rollback procedure documented
+
+**Deployment status:** ✅ READY / SIGNED OFF
 
 ## Production URL
 
