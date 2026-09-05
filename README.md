@@ -6,6 +6,10 @@ This project was developed as part of the **FlyRank Front-end AI Engineering Int
 
 ---
 
+## 🎯 Project Brief
+
+FlyRank AI Dashboard is a production-ready AI-enhanced frontend application designed to help businesses explore AI analytics and qualify potential customer leads through an interactive interface. The primary users are businesses and teams interested in using AI to understand project activity and evaluate potential leads. The application combines a responsive analytics dashboard with a streaming AI qualification chat that uses a server-side `scoreLead` tool to turn conversational business information into a structured lead score. I chose this idea because it allowed me to combine frontend engineering, AI integration, accessibility, performance optimization, resilience, testing, and production deployment into one realistic application rather than implementing AI as a standalone chatbot.
+
 ## ✨ Features
 
 ### 🎨 Premium UI
@@ -481,6 +485,21 @@ The following functionality has been tested:
 
 ---
 
+### Test & Coverage Evidence
+
+The automated test suite was verified before production sign-off:
+
+- **14/14 tests passing**
+- **84.37% statement coverage**
+- **81.15% branch coverage**
+- **84.61% function coverage**
+- **86.88% line coverage**
+- TypeScript check passes
+- Production build passes
+- ESLint passes
+
+The test suite covers the streaming chat flow, lead scoring result rendering, and validated contact form behavior.
+
 # 📚 Internship Context
 
 This project is part of the **FlyRank Front-end AI Engineering Internship**.
@@ -819,32 +838,6 @@ The development process was iterative:
 
 AI was therefore used as an engineering assistant rather than as an unchecked code generator.
 
-## Rollback & Monitoring
-
-### Rollback Plan
-
-Production deployments are managed through Vercel from the `main` branch.
-
-If a production deployment introduces a regression:
-
-1. Identify the problematic commit or deployment.
-2. Revert the problematic change in Git.
-3. Push the revert to `main`.
-4. Verify the new production deployment.
-5. If necessary, redeploy the last known-good Vercel deployment.
-
-The `/api/health` endpoint provides a basic production health check for confirming API availability.
-
-### Operational Checks
-
-Before considering a deployment successful, verify:
-
-- Production homepage loads.
-- `/api/health` responds successfully.
-- AI chat accepts valid requests.
-- Streaming responses complete normally.
-- Invalid/oversized requests are rejected safely.
-- No API credentials are exposed to the client.
 
 ## Production Deployment Checklist
 
